@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+        }
+
+        #surveyForm {
+            width: 400px;
+            margin: 0 auto;
+            background-color: lightgray;
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px whitesmoke;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: whitesmoke;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+         #mentalHealthSurvey {
+            width: 400px;
+            margin: 0 auto;
+            background-color: gainsboro;
+            padding: 20px;
+            border: 1px solid lightcyan;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px wheat;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="radio"] {
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div id="surveyForm">
+        <h1>Survey Form</h1>
+        <form>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <button type="button" id="nextButton" onclick="showMentalHealthSurvey()">Next</button>
+        </form>
+    </div>
+
+    <div id="mentalHealthSurvey" style="display: none;">
+        <h1>Mental Health Survey</h1>
+        <form>
+            <label for="q1">1. How often do you feel stressed?</label>
+            <input type="radio" name="q1" value="rarely"> Rarely
+            <input type="radio" name="q1" value="sometimes"> Sometimes
+            <input type="radio" name="q1" value="often"> Often
+
+            <label for="q2">2. Do you have trouble sleeping at night?</label>
+            <input type="radio" name="q2" value="yes"> Yes
+            <input type="radio" name="q2" value="no"> No
+
+            <label for="q3">3. How would you rate your overall mental health?</label>
+            <input type="radio" name="q3" value="poor"> Poor
+            <input type="radio" name="q3" value="fair"> Fair
+            <input type="radio" name="q3" value="good"> Good<br><br>
+
+    
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function showMentalHealthSurvey() {
+            document.getElementById("surveyForm").style.display = "none";
+            document.getElementById("mentalHealthSurvey").style.display = "block";
+        }
+    </script>
+</body>
+</html>

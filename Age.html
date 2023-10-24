@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: whitesmoke;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        #ageCalculatorForm {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px whitesmoke;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 80px;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p#result {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Age Calculator</h1>
+
+    <form id="ageCalculatorForm">
+        <label for="dob">Date of Birth:</label>
+        <input type="number" id="dob" placeholder="Day" min="1" max="31" required>
+        <input type="number" id="month" placeholder="Month" min="1" max="12" required>
+        <input type="number" id="year" placeholder="Year" min="1900" max="2099" required>
+        <button type="button" onclick="calculateAge()">Calculate Age</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateAge() {
+            
+            const day = parseInt(document.getElementById("dob").value);
+            const month = parseInt(document.getElementById("month").value);
+            const year = parseInt(document.getElementById("year").value);
+
+            const birthDate = new Date(year, month - 1, day);
+
+            const currentDate = new Date();
+
+            const age = currentDate.getFullYear() - birthDate.getFullYear();
+
+            if (currentDate.getMonth() < birthDate.getMonth() ||
+                (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = "Your age is: " + age + " years old";
+        }
+    </script>
+</body>
+</html>
